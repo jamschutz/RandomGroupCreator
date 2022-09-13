@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+<head>
+    <script src="script.js"></script>
+</head>
+
+<style>
+    .table-element {
+        padding: 10px 20px;
+    }
+</style>
+
+<html>
+
+<body>
+    <div id="studentsData">
+        <span>Comma-separated list of students:</span><br/>
+        <textarea style="width:475px; height: 300px;" type="text" id="studentsList"></textarea>
+        <br/>
+        <span>Minimum students in a group: </span><input type="number" id="groupSizes"><br/>
+        <span>Number of weeks: </span><input type="number" id="numWeeks">
+
+        <br/><br/>
+        <button onclick="createGroups()">Create Groups</button>
+    </div>
+
+    <br/><br/>
+    <div id="groupsOutput">
+        <!-- <table>
+            <tr>
+                <th>Group 1</th>
+                <th>Group 2</th>
+                <th>Group 3</th>
+            </tr>
+            <tr>
+                <td>Joey</td>
+                <td>Etc</td>
+                <td>blah</td>
+            </tr>
+            <tr>
+                <td>blah</td>
+                <td>Henry</td>
+                <td>Samantha</td>
+            </tr>
+            <tr>
+                <td>blah</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> -->
+
+        <h3>Week 1</h3>
+        <div><b>GROUP 1: </b>Samantha, Hao, Jessica</div>
+        <div><b>GROUP 2: </b>Joey, Indi, Abraham</div>
+        <div><b>GROUP 3: </b>Henry, Austin, Kruttika, Chloe</div>
+    </div>
+</body>
+
+</html>
