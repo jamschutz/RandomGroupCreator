@@ -29,7 +29,7 @@ function createGroups() {
 
     // clear previous groups...
     document.getElementById('groupsOutput').innerHTML = "";
-    createGroupElement(groups, 'Week1');
+    createGroupElement(groups, 'Week 1');
 }
 
 
@@ -46,37 +46,47 @@ function getStudents(rawStudentData) {
 }
 
 
-function createGroupElement(groups, elementId) {
-    // const body = document.getElementById('groupsOutput'), table = document.createElement('table');
+function createGroupElement(groups, weekLabel) {
+    // get groups output
+    const body = document.getElementById('groupsOutput');
+    
+    // create header
+    let header = document.createElement('h3');
+    let headerLabel = document.createTextNode(weekLabel);
+    header.appendChild(headerLabel);
+    body.appendChild(header);
 
-    // // create headers
-    // let thead = table.createTHead();
-    // let headerRow = thead.insertRow();
-    // thead.classList.add('table-element');
-    // headerRow.classList.add('table-element');
-    // for (let i = 0; i < groups.length; i++) {
-    //     let th = document.createElement("th");
-    //     let text = document.createTextNode("Group " + (i + 1));
-    //     th.classList.add('table-element');
-    //     // text.classList.add('table-element');
-    //     th.appendChild(text);
-    //     headerRow.appendChild(th);
-    // }
+    // create groups
+    let groupCounter = 1;
+    for (let group of groups) {
+        // create group div
+        let groupDiv = document.createElement('div');
 
+        // create "GROUP #: " label
+        let groupLabel = document.createElement('b');
+        groupLabel.appendChild(
+            document.createTextNode(`Group ${groupCounter}: `)
+        );
+        groupDiv.appendChild(groupLabel);
 
-    // // create groups
-    // for (let group of groups) {
-    //     let row = table.insertRow();
-    //     row.classList.add('table-element');
-    //     for(let student of group) {
-    //         let cell = row.insertCell();
-    //         let text = document.createTextNode(student);
-    //         cell.classList.add('table-element');
-    //         // text.classList.add('table-element');
-    //         cell.appendChild(text);
-    //     }
-    // }
-    // body.appendChild(table);
+        console.log(group);
+
+        // list students
+        let studentsList = '';
+        for(let student of group) {
+            studentsList += student + ', ';
+        }
+        // lop off trailing ', '
+        studentsList = studentsList.substring(0, studentsList.length - 2);
+        // add to group
+        groupDiv.appendChild(
+            document.createTextNode(studentsList)
+        );
+
+        body.appendChild(groupDiv);
+        groupCounter++;
+    }
+    
 }
 
 
